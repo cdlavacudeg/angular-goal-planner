@@ -4,3 +4,7 @@
 
 <p [class.red-color]="isRed">some text for our page</p>
 <button (click)="change()">Switch Background Color</button>
+<div *ngIf="products.length > 0">
+  <div *ngFor="let product of products">{{ product }}</div>
+</div>
+<div *ngIf="products.length === 0">There are no products</div>
