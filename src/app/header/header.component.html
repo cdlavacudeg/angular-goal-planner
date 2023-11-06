@@ -1,6 +1,8 @@
 <h1 [class]="dynamycClass">{{ title }}</h1>
 
-<button (click)="login()">Click me</button>
+<ul>
+  <li *ngFor="let item of menu">{{ item.title }}</li>
+</ul>
 
 <p [class.red-color]="isRed">some text for our page</p>
 <button (click)="change()">Switch Background Color</button>
@@ -8,3 +10,45 @@
   <div *ngFor="let product of products">{{ product }}</div>
 </div>
 <div *ngIf="products.length === 0">There are no products</div>
+
+<label>
+  Name:
+  <input type="text" [(ngModel)]="name" />
+</label>
+
+<p>Hello {{ name }}</p>
+
+<label>
+  Email:
+  <input type="text" [(ngModel)]="email" />
+</label>
+<p>Email {{ email }}</p>
+<label>
+  Password:
+  <input type="text" [(ngModel)]="password" />
+</label>
+
+<p>Password {{ password }}</p>
+
+<button (click)="login()">Login</button>
+
+<form (ngSubmit)="login()" #loginForm="ngForm" id="loginForm">
+  <input type="text" [(ngModel)]="name" name="name" required />
+  <input type="text" [(ngModel)]="email" name="email" required />
+  <input type="text" [(ngModel)]="password" name="password" required />
+  <input type="submit" value="Login" [disabled]="!loginForm.form.valid" />
+</form>
+
+<!-- Reactive form -->
+<br />
+<br />
+<form (ngSubmit)="loginReactive()">
+  <input type="text" [formControl]="nameReactive" name="nameReactive" required />
+  <input type="text" [formControl]="emailReactive" name="emailReactive" required />
+  <input type="text" [formControl]="passwordReactive" name="passwordReactive" required />
+  <input type="submit" value="Login" />
+</form>
+
+<p>Name Reactive:{{ nameReactive.value }}</p>
+<p>Email Reactive:{{ emailReactive.value }}</p>
+<p>Password Reactive:{{ passwordReactive.value }}</p>

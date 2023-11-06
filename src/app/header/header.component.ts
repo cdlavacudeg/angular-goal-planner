@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgFor, NgIf } from '@angular/common';
+import { Menu } from '../constants';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, NgFor, NgIf],
+  imports: [CommonModule, NgFor, NgIf, FormsModule, ReactiveFormsModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
@@ -15,6 +17,16 @@ export class HeaderComponent {
   isRed = false;
   products = ['Apple', 'Banana', 'Orange'];
 
+  menu = Menu;
+
+  name = '';
+  email = '';
+  password = '';
+
+  nameReactive = new FormControl('Cristian');
+  emailReactive = new FormControl('');
+  passwordReactive = new FormControl('');
+
   constructor() {
     setTimeout(() => {
       this.title = 'Project is working';
@@ -23,11 +35,19 @@ export class HeaderComponent {
 
   login() {
     alert('Welcome');
-    this.title = 'User loged';
+    this.title = `Welcome ${this.name}`;
+  }
+
+  loginReactive() {
+    alert('Welcome');
+    this.title = `Welcome ${this.nameReactive.value}`;
   }
 
   change() {
     this.isRed = !this.isRed;
     this.products.pop();
+    this.name = 'Cristian';
+    this.email = 'qj9y1@example.com';
+    this.password = '123456';
   }
 }
