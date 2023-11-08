@@ -52,3 +52,19 @@
 <p>Name Reactive:{{ nameReactive.value }}</p>
 <p>Email Reactive:{{ emailReactive.value }}</p>
 <p>Password Reactive:{{ passwordReactive.value }}</p>
+
+<!-- Group Form-->
+
+<br />
+<br />
+<form [formGroup]="loginGroupForm" (ngSubmit)="loginReactiveGroup()" id="loginGroupForm">
+  <input type="text" formControlName="nameReactiveGroup" />
+  <input type="text" formControlName="emailReactiveGroup" />
+  <input type="text" formControlName="passwordReactiveGroup" />
+  <input type="submit" value="Login" [disabled]="!loginGroupForm.valid" />
+  <input type="reset" value="Reset" (click)="loginGroupForm.reset()" />
+</form>
+
+<p>Name Reactive Group:{{ loginGroupForm.value.nameReactiveGroup }}</p>
+<p>Email Reactive Group:{{ loginGroupForm.value.emailReactiveGroup }}</p>
+<p>Password Reactive Group:{{ loginGroupForm.value.passwordReactiveGroup }}</p>

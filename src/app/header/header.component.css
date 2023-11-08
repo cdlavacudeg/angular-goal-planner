@@ -9,3 +9,11 @@
 #loginForm input.ng-invalid {
   background-color: #f58c84;
 }
+
+#loginGroupForm input.ng-valid {
+  background-color: #79ba6a;
+}
+
+#loginGroupForm input.ng-invalid {
+  background-color: #f58c84;
+}
