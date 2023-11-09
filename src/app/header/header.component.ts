@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NgFor, NgIf } from '@angular/common';
 import { Menu } from '../constants';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, NgFor, NgIf, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, NgFor, NgIf, FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })

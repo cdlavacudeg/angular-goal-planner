@@ -1,7 +1,14 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { HomeComponent } from './app/home/home.component';
+import { ContactsComponent } from './app/contacts/contacts.component';
+import { Routes, provideRouter } from '@angular/router';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
 
-import { AppModule } from './app/app.module';
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'contacts', component: ContactsComponent },
+];
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [provideRouter(routes)],
+});
